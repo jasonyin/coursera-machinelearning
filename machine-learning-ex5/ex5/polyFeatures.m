@@ -15,8 +15,13 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
+% replace the first column of 0s to X
+X_poly(:, 1) = X;
 
-
+for i = 2:p
+    % set the column
+    X_poly(:, i) = X.*X_poly(:, i-1);
+end
 
 
 
